@@ -4,36 +4,62 @@ on:
   workflow_dispatch:
     inputs:
       model_name:
-        description: "r8.im/<username>/<model>"
+        description: "r8.im/<username>/<model> (optional)"
         required: false
-        default: "r8.im/${{ github.repository_owner }}/guillotine-inpaint"
+        default: ""
 
 jobs:
   push_to_replicate:
     runs-on: ubuntu-24.04
     permissions:
       contents: read
+      actions: read
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Cog
+      - name: Basic debug
+        run: |
+          echo "Repo: $GITHUB_REPOSITORY"
+          echo "Actor: $GITHUB_ACTOR"
+          echo "Ref: $GITHUB_REF"
+          echo "Inputs.model_name: '${{ github.event.inputs.model_name }}'"
+          echo "Files:"
+          ls -la
+          echo ".cog exists?"
+          ls -la .cog || true
+
+      - name: Setup Cog v0.16.7
         uses: replicate/setup-cog@v2
         with:
           token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
           cog-version: v0.16.7
           install-cuda: false
 
+      - name: Cog version
+        run: cog --version
+
       - name: Login to Replicate
-        run: |
-          echo "$REPLICATE_CLI_AUTH_TOKEN" | cog login --token-stdin
         env:
           REPLICATE_CLI_AUTH_TOKEN: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
+        run: |
+          if [ -z "$REPLICATE_CLI_AUTH_TOKEN" ]; then
+            echo "Secret REPLICATE_CLI_AUTH_TOKEN is EMPTY"; exit 1
+          fi
+          echo "$REPLICATE_CLI_AUTH_TOKEN" | cog login --token-stdin
 
-      - name: Push model
+      - name: Decide target
+        id: target
+        env:
+          REPO_OWNER: ${{ github.repository_owner }}
         run: |
           TARGET="${{ github.event.inputs.model_name }}"
           if [ -z "$TARGET" ]; then
-            TARGET="r8.im/${{ github.repository_owner }}/guillotine-inpaint"
+            TARGET="r8.im/${REPO_OWNER}/guillotine-inpaint"
           fi
-          echo "Pushing to: $TARGET"
-          cog push "$TARGET"
+          echo "TARGET=$TARGET" | tee -a $GITHUB_OUTPUT
+
+      - name: Push model
+        run: |
+          echo "Pushing to: ${{ steps.target.outputs.TARGET }}"
+          cog push "${{ steps.target.outputs.TARGET }}"
