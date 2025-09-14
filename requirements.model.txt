@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+diffusers==0.24.0
+transformers==4.37.2
+huggingface-hub==0.20.3
+accelerate==0.27.2
+safetensors
+pillow
+einops
+pydantic==1.10.13
