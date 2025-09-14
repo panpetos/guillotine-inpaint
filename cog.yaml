@@ -1,4 +1,5 @@
 build:
   python_version: "3.11"
-  python_requirements: requirements.model.txt
+  python_requirements: requirements.txt
+
 predict: "predict.py:Predictor"

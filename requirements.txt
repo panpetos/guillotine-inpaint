@@ -1,0 +1,9 @@
+torch
+torchvision
+diffusers
+transformers
+accelerate
+safetensors
+pillow
+requests
+pydantic==2.11.1
