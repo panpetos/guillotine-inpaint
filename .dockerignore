@@ -1,4 +1,7 @@
-*
-!cog.yaml
-!predict.py
-!requirements.model.txt
+.git
+__pycache__/
+*.py[cod]
+*.swp
+.env*
+.DS_Store
+# ВАЖНО: НЕ добавляй сюда ".cog" — Cog использует её на сборке
