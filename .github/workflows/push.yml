@@ -4,15 +4,36 @@ on:
   workflow_dispatch:
     inputs:
       model_name:
-        description: 'Например: panpetos/guillotine-inpaint'
-        required: true
+        description: "r8.im/<username>/<model>"
+        required: false
+        default: "r8.im/${{ github.repository_owner }}/guillotine-inpaint"
 
 jobs:
   push_to_replicate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
-      - uses: replicate/setup-cog@v2
+
+      - name: Setup Cog
+        uses: replicate/setup-cog@v2
         with:
           token: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
-      - run: cog push r8.im/${{ inputs.model_name }}
+          cog-version: v0.16.7     # свежая версия
+          install-cuda: false
+
+      - name: Login to Replicate
+        run: |
+          echo "$REPLICATE_CLI_AUTH_TOKEN" | cog login --token-stdin
+        env:
+          REPLICATE_CLI_AUTH_TOKEN: ${{ secrets.REPLICATE_CLI_AUTH_TOKEN }}
+
+      - name: Push model
+        run: |
+          TARGET="${{ github.event.inputs.model_name }}"
+          if [ -z "$TARGET" ]; then
+            TARGET="r8.im/${{ github.repository_owner }}/guillotine-inpaint"
+          fi
+          echo "Pushing to: $TARGET"
+          cog push "$TARGET"
