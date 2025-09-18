@@ -1,0 +1,326 @@
+﻿2025-09-14T20:49:13.0313922Z Current runner version: '2.328.0'
+2025-09-14T20:49:13.0338233Z ##[group]Runner Image Provisioner
+2025-09-14T20:49:13.0339072Z Hosted Compute Agent
+2025-09-14T20:49:13.0339731Z Version: 20250829.383
+2025-09-14T20:49:13.0340308Z Commit: 27cb235aab5b0e52e153a26cd86b4742e89dac5d
+2025-09-14T20:49:13.0340998Z Build Date: 2025-08-29T13:48:48Z
+2025-09-14T20:49:13.0341660Z ##[endgroup]
+2025-09-14T20:49:13.0342189Z ##[group]Operating System
+2025-09-14T20:49:13.0342753Z Ubuntu
+2025-09-14T20:49:13.0343218Z 24.04.3
+2025-09-14T20:49:13.0343922Z LTS
+2025-09-14T20:49:13.0344519Z ##[endgroup]
+2025-09-14T20:49:13.0345063Z ##[group]Runner Image
+2025-09-14T20:49:13.0345659Z Image: ubuntu-24.04
+2025-09-14T20:49:13.0346126Z Version: 20250907.24.1
+2025-09-14T20:49:13.0347172Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250907.24/images/ubuntu/Ubuntu2404-Readme.md
+2025-09-14T20:49:13.0348727Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250907.24
+2025-09-14T20:49:13.0349780Z ##[endgroup]
+2025-09-14T20:49:13.0350831Z ##[group]GITHUB_TOKEN Permissions
+2025-09-14T20:49:13.0352746Z Actions: read
+2025-09-14T20:49:13.0353288Z Contents: read
+2025-09-14T20:49:13.0354225Z Metadata: read
+2025-09-14T20:49:13.0354782Z ##[endgroup]
+2025-09-14T20:49:13.0357147Z Secret source: Actions
+2025-09-14T20:49:13.0358075Z Prepare workflow directory
+2025-09-14T20:49:13.0677534Z Prepare all required actions
+2025-09-14T20:49:13.0715299Z Getting action download info
+2025-09-14T20:49:13.5384830Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-14T20:49:13.7357144Z Download action repository 'replicate/setup-cog@v2' (SHA:8a5fea3c1818b6950dcf8027285f5a9b447c0c4a)
+2025-09-14T20:49:14.5082267Z Getting action download info
+2025-09-14T20:49:14.7320618Z Download action repository 'docker/setup-buildx-action@d70bba72b1f3fd22344832f00baa16ece964efeb' (SHA:d70bba72b1f3fd22344832f00baa16ece964efeb)
+2025-09-14T20:49:15.5638771Z Download action repository 'Jimver/cuda-toolkit@dc0ca7bb29c5a92f7a963d3d5c93f8d59765136a' (SHA:dc0ca7bb29c5a92f7a963d3d5c93f8d59765136a)
+2025-09-14T20:49:16.5165439Z Complete job name: push_to_replicate
+2025-09-14T20:49:16.5797642Z ##[group]Run actions/checkout@v4
+2025-09-14T20:49:16.5798209Z with:
+2025-09-14T20:49:16.5798439Z   repository: panpetos/guillotine-inpaint
+2025-09-14T20:49:16.5798856Z   token: ***
+2025-09-14T20:49:16.5799044Z   ssh-strict: true
+2025-09-14T20:49:16.5799236Z   ssh-user: git
+2025-09-14T20:49:16.5799434Z   persist-credentials: true
+2025-09-14T20:49:16.5799871Z   clean: true
+2025-09-14T20:49:16.5800190Z   sparse-checkout-cone-mode: true
+2025-09-14T20:49:16.5800587Z   fetch-depth: 1
+2025-09-14T20:49:16.5800786Z   fetch-tags: false
+2025-09-14T20:49:16.5800991Z   show-progress: true
+2025-09-14T20:49:16.5801180Z   lfs: false
+2025-09-14T20:49:16.5801352Z   submodules: false
+2025-09-14T20:49:16.5801554Z   set-safe-directory: true
+2025-09-14T20:49:16.5801990Z ##[endgroup]
+2025-09-14T20:49:16.6866354Z Syncing repository: panpetos/guillotine-inpaint
+2025-09-14T20:49:16.6867805Z ##[group]Getting Git version info
+2025-09-14T20:49:16.6868367Z Working directory is '/home/runner/work/guillotine-inpaint/guillotine-inpaint'
+2025-09-14T20:49:16.6869008Z [command]/usr/bin/git version
+2025-09-14T20:49:16.6932151Z git version 2.51.0
+2025-09-14T20:49:16.6958411Z ##[endgroup]
+2025-09-14T20:49:16.6979228Z Temporarily overriding HOME='/home/runner/work/_temp/3bcfb377-fe7f-4391-a232-d1c34709530e' before making global git config changes
+2025-09-14T20:49:16.6980556Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-14T20:49:16.6984475Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/guillotine-inpaint/guillotine-inpaint
+2025-09-14T20:49:16.7018939Z Deleting the contents of '/home/runner/work/guillotine-inpaint/guillotine-inpaint'
+2025-09-14T20:49:16.7022231Z ##[group]Initializing the repository
+2025-09-14T20:49:16.7026478Z [command]/usr/bin/git init /home/runner/work/guillotine-inpaint/guillotine-inpaint
+2025-09-14T20:49:16.7132124Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-14T20:49:16.7133165Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-14T20:49:16.7134487Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-14T20:49:16.7135082Z hint:
+2025-09-14T20:49:16.7135543Z hint: 	git config --global init.defaultBranch <name>
+2025-09-14T20:49:16.7135856Z hint:
+2025-09-14T20:49:16.7136168Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-14T20:49:16.7137003Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-14T20:49:16.7137717Z hint:
+2025-09-14T20:49:16.7138035Z hint: 	git branch -m <name>
+2025-09-14T20:49:16.7138264Z hint:
+2025-09-14T20:49:16.7138701Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-14T20:49:16.7139925Z Initialized empty Git repository in /home/runner/work/guillotine-inpaint/guillotine-inpaint/.git/
+2025-09-14T20:49:16.7150339Z [command]/usr/bin/git remote add origin https://github.com/panpetos/guillotine-inpaint
+2025-09-14T20:49:16.7188859Z ##[endgroup]
+2025-09-14T20:49:16.7189522Z ##[group]Disabling automatic garbage collection
+2025-09-14T20:49:16.7194147Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-14T20:49:16.7221616Z ##[endgroup]
+2025-09-14T20:49:16.7222280Z ##[group]Setting up auth
+2025-09-14T20:49:16.7229258Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-14T20:49:16.7259196Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-14T20:49:16.7608654Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-14T20:49:16.7640181Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-14T20:49:16.7858340Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-14T20:49:16.7891583Z ##[endgroup]
+2025-09-14T20:49:16.7892312Z ##[group]Fetching the repository
+2025-09-14T20:49:16.7909229Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +0c89a8a63ba93cddb56ac642b4b6d41b3321ed35:refs/remotes/origin/main
+2025-09-14T20:49:17.1479444Z From https://github.com/panpetos/guillotine-inpaint
+2025-09-14T20:49:17.1480320Z  * [new ref]         0c89a8a63ba93cddb56ac642b4b6d41b3321ed35 -> origin/main
+2025-09-14T20:49:17.1511352Z ##[endgroup]
+2025-09-14T20:49:17.1512045Z ##[group]Determining the checkout info
+2025-09-14T20:49:17.1514877Z ##[endgroup]
+2025-09-14T20:49:17.1519942Z [command]/usr/bin/git sparse-checkout disable
+2025-09-14T20:49:17.1559230Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-14T20:49:17.1586566Z ##[group]Checking out the ref
+2025-09-14T20:49:17.1590778Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-09-14T20:49:17.1634102Z Switched to a new branch 'main'
+2025-09-14T20:49:17.1637000Z branch 'main' set up to track 'origin/main'.
+2025-09-14T20:49:17.1642107Z ##[endgroup]
+2025-09-14T20:49:17.1675480Z [command]/usr/bin/git log -1 --format=%H
+2025-09-14T20:49:17.1696802Z 0c89a8a63ba93cddb56ac642b4b6d41b3321ed35
+2025-09-14T20:49:17.1892723Z ##[group]Run echo "Repo: $GITHUB_REPOSITORY"
+2025-09-14T20:49:17.1893122Z [36;1mecho "Repo: $GITHUB_REPOSITORY"[0m
+2025-09-14T20:49:17.1893394Z [36;1mecho "Actor: $GITHUB_ACTOR"[0m
+2025-09-14T20:49:17.1893801Z [36;1mecho "Ref: $GITHUB_REF"[0m
+2025-09-14T20:49:17.1894156Z [36;1mecho "Inputs.model_name: 'r8.im/panpetos/guillotine-inpaint'"[0m
+2025-09-14T20:49:17.1894517Z [36;1mecho "Files:"[0m
+2025-09-14T20:49:17.1894919Z [36;1mls -la[0m
+2025-09-14T20:49:17.1895108Z [36;1mecho ".cog exists?"[0m
+2025-09-14T20:49:17.1895329Z [36;1mls -la .cog || true[0m
+2025-09-14T20:49:17.1948112Z shell: /usr/bin/bash -e {0}
+2025-09-14T20:49:17.1948381Z ##[endgroup]
+2025-09-14T20:49:17.2014517Z Repo: panpetos/guillotine-inpaint
+2025-09-14T20:49:17.2015024Z Actor: panpetos
+2025-09-14T20:49:17.2015355Z Ref: refs/heads/main
+2025-09-14T20:49:17.2015780Z Inputs.model_name: 'r8.im/panpetos/guillotine-inpaint'
+2025-09-14T20:49:17.2016188Z Files:
+2025-09-14T20:49:17.2028060Z total 36
+2025-09-14T20:49:17.2028465Z drwxr-xr-x 4 runner runner 4096 Sep 14 20:49 .
+2025-09-14T20:49:17.2029003Z drwxr-xr-x 3 runner runner 4096 Sep 14 20:49 ..
+2025-09-14T20:49:17.2029486Z -rw-r--r-- 1 runner runner   90 Sep 14 20:49 .dockerignore
+2025-09-14T20:49:17.2030065Z drwxr-xr-x 7 runner runner 4096 Sep 14 20:49 .git
+2025-09-14T20:49:17.2030666Z drwxr-xr-x 3 runner runner 4096 Sep 14 20:49 .github
+2025-09-14T20:49:17.2031259Z -rw-r--r-- 1 runner runner   26 Sep 14 20:49 .gitignore
+2025-09-14T20:49:17.2031954Z -rw-r--r-- 1 runner runner  110 Sep 14 20:49 cog.yaml
+2025-09-14T20:49:17.2032654Z -rw-r--r-- 1 runner runner 1345 Sep 14 20:49 predict.py
+2025-09-14T20:49:17.2033151Z -rw-r--r-- 1 runner runner  155 Sep 14 20:49 requirements.model.txt
+2025-09-14T20:49:17.2033581Z .cog exists?
+2025-09-14T20:49:17.2041186Z ls: cannot access '.cog': No such file or directory
+2025-09-14T20:49:17.2117029Z ##[group]Run replicate/setup-cog@v2
+2025-09-14T20:49:17.2117363Z with:
+2025-09-14T20:49:17.2117917Z   token: ***
+2025-09-14T20:49:17.2118206Z   cog-version: v0.16.7
+2025-09-14T20:49:17.2118458Z   install-cuda: false
+2025-09-14T20:49:17.2118816Z ##[endgroup]
+2025-09-14T20:49:17.2229251Z ##[group]Run docker/setup-buildx-action@d70bba72b1f3fd22344832f00baa16ece964efeb
+2025-09-14T20:49:17.2229742Z with:
+2025-09-14T20:49:17.2230016Z   driver: docker
+2025-09-14T20:49:17.2304181Z   buildkitd-flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+2025-09-14T20:49:17.2305096Z   install: false
+2025-09-14T20:49:17.2305389Z   use: true
+2025-09-14T20:49:17.2305600Z   cache-binary: true
+2025-09-14T20:49:17.2305807Z   cleanup: true
+2025-09-14T20:49:17.2305999Z ##[endgroup]
+2025-09-14T20:49:18.6545631Z ##[group]Docker info
+2025-09-14T20:49:18.6561881Z [command]/usr/bin/docker version
+2025-09-14T20:49:18.7049409Z Client: Docker Engine - Community
+2025-09-14T20:49:18.7051289Z  Version:           28.0.4
+2025-09-14T20:49:18.7051795Z  API version:       1.48
+2025-09-14T20:49:18.7052181Z  Go version:        go1.23.7
+2025-09-14T20:49:18.7052545Z  Git commit:        b8034c0
+2025-09-14T20:49:18.7052924Z  Built:             Tue Mar 25 15:07:16 2025
+2025-09-14T20:49:18.7053370Z  OS/Arch:           linux/amd64
+2025-09-14T20:49:18.7056233Z  Context:           default
+2025-09-14T20:49:18.7056522Z 
+2025-09-14T20:49:18.7056685Z Server: Docker Engine - Community
+2025-09-14T20:49:18.7057067Z  Engine:
+2025-09-14T20:49:18.7057341Z   Version:          28.0.4
+2025-09-14T20:49:18.7057750Z   API version:      1.48 (minimum version 1.24)
+2025-09-14T20:49:18.7058212Z   Go version:       go1.23.7
+2025-09-14T20:49:18.7058559Z   Git commit:       6430e49
+2025-09-14T20:49:18.7058923Z   Built:            Tue Mar 25 15:07:16 2025
+2025-09-14T20:49:18.7059333Z   OS/Arch:          linux/amd64
+2025-09-14T20:49:18.7059702Z   Experimental:     false
+2025-09-14T20:49:18.7060040Z  containerd:
+2025-09-14T20:49:18.7060383Z   Version:          1.7.27
+2025-09-14T20:49:18.7060843Z   GitCommit:        05044ec0a9a75232cad458027ca83437aae3f4da
+2025-09-14T20:49:18.7061308Z  runc:
+2025-09-14T20:49:18.7061580Z   Version:          1.2.5
+2025-09-14T20:49:18.7061925Z   GitCommit:        v1.2.5-0-g59923ef
+2025-09-14T20:49:18.7062351Z  docker-init:
+2025-09-14T20:49:18.7062647Z   Version:          0.19.0
+2025-09-14T20:49:18.7062975Z   GitCommit:        de40ad0
+2025-09-14T20:49:18.7085118Z [command]/usr/bin/docker info
+2025-09-14T20:49:21.3754516Z Client: Docker Engine - Community
+2025-09-14T20:49:21.3755265Z  Version:    28.0.4
+2025-09-14T20:49:21.3756069Z  Context:    default
+2025-09-14T20:49:21.3756413Z  Debug Mode: false
+2025-09-14T20:49:21.3756772Z  Plugins:
+2025-09-14T20:49:21.3757145Z   buildx: Docker Buildx (Docker Inc.)
+2025-09-14T20:49:21.3757580Z     Version:  v0.28.0
+2025-09-14T20:49:21.3758013Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2025-09-14T20:49:21.3758561Z   compose: Docker Compose (Docker Inc.)
+2025-09-14T20:49:21.3758966Z     Version:  v2.38.2
+2025-09-14T20:49:21.3759390Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2025-09-14T20:49:21.3759776Z 
+2025-09-14T20:49:21.3759894Z Server:
+2025-09-14T20:49:21.3760163Z  Containers: 0
+2025-09-14T20:49:21.3760447Z   Running: 0
+2025-09-14T20:49:21.3760730Z   Paused: 0
+2025-09-14T20:49:21.3761013Z   Stopped: 0
+2025-09-14T20:49:21.3761298Z  Images: 0
+2025-09-14T20:49:21.3761587Z  Server Version: 28.0.4
+2025-09-14T20:49:21.3761944Z  Storage Driver: overlay2
+2025-09-14T20:49:21.3762329Z   Backing Filesystem: extfs
+2025-09-14T20:49:21.3762714Z   Supports d_type: true
+2025-09-14T20:49:21.3763068Z   Using metacopy: false
+2025-09-14T20:49:21.3763413Z   Native Overlay Diff: false
+2025-09-14T20:49:21.3763972Z   userxattr: false
+2025-09-14T20:49:21.3764315Z  Logging Driver: json-file
+2025-09-14T20:49:21.3764691Z  Cgroup Driver: systemd
+2025-09-14T20:49:21.3765023Z  Cgroup Version: 2
+2025-09-14T20:49:21.3765362Z  Plugins:
+2025-09-14T20:49:21.3765944Z   Volume: local
+2025-09-14T20:49:21.3766323Z   Network: bridge host ipvlan macvlan null overlay
+2025-09-14T20:49:21.3766996Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2025-09-14T20:49:21.3767584Z  Swarm: inactive
+2025-09-14T20:49:21.3767913Z  Runtimes: io.containerd.runc.v2 runc
+2025-09-14T20:49:21.3768292Z  Default Runtime: runc
+2025-09-14T20:49:21.3768631Z  Init Binary: docker-init
+2025-09-14T20:49:21.3769100Z  containerd version: 05044ec0a9a75232cad458027ca83437aae3f4da
+2025-09-14T20:49:21.3769622Z  runc version: v1.2.5-0-g59923ef
+2025-09-14T20:49:21.3769990Z  init version: de40ad0
+2025-09-14T20:49:21.3770311Z  Security Options:
+2025-09-14T20:49:21.3770598Z   apparmor
+2025-09-14T20:49:21.3770865Z   seccomp
+2025-09-14T20:49:21.3771126Z    Profile: builtin
+2025-09-14T20:49:21.3771421Z   cgroupns
+2025-09-14T20:49:21.3771698Z  Kernel Version: 6.11.0-1018-azure
+2025-09-14T20:49:21.3772071Z  Operating System: Ubuntu 24.04.3 LTS
+2025-09-14T20:49:21.3772466Z  OSType: linux
+2025-09-14T20:49:21.3772762Z  Architecture: x86_64
+2025-09-14T20:49:21.3773097Z  CPUs: 4
+2025-09-14T20:49:21.3773354Z  Total Memory: 15.62GiB
+2025-09-14T20:49:21.3773851Z  Name: runnervmf4ws1
+2025-09-14T20:49:21.3774200Z  ID: 80b0c887-f378-498c-94b8-5e260688697c
+2025-09-14T20:49:21.3774640Z  Docker Root Dir: /var/lib/docker
+2025-09-14T20:49:21.3775038Z  Debug Mode: false
+2025-09-14T20:49:21.3775360Z  Username: githubactions
+2025-09-14T20:49:21.3775706Z  Experimental: false
+2025-09-14T20:49:21.3776050Z  Insecure Registries:
+2025-09-14T20:49:21.3780676Z   ::1/128
+2025-09-14T20:49:21.3780988Z   127.0.0.0/8
+2025-09-14T20:49:21.3781313Z  Live Restore Enabled: false
+2025-09-14T20:49:21.3781555Z 
+2025-09-14T20:49:21.3782149Z ##[endgroup]
+2025-09-14T20:49:21.4762650Z ##[group]Buildx version
+2025-09-14T20:49:21.4791634Z [command]/usr/bin/docker buildx version
+2025-09-14T20:49:21.5336342Z github.com/docker/buildx v0.28.0 b1281b81bba797b21d9eaf256e6a13eb14419836
+2025-09-14T20:49:21.5370629Z ##[endgroup]
+2025-09-14T20:49:21.5378107Z ##[group]Booting builder
+2025-09-14T20:49:21.6135070Z [command]/usr/bin/docker buildx inspect --bootstrap --builder default
+2025-09-14T20:49:21.7508265Z Name:   default
+2025-09-14T20:49:21.7508744Z Driver: docker
+2025-09-14T20:49:21.7508964Z 
+2025-09-14T20:49:21.7509126Z Nodes:
+2025-09-14T20:49:21.7509564Z Name:             default
+2025-09-14T20:49:21.7510282Z Endpoint:         default
+2025-09-14T20:49:21.7510680Z Status:           running
+2025-09-14T20:49:21.7511046Z BuildKit version: v0.20.2
+2025-09-14T20:49:21.7511560Z Platforms:        linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/386
+2025-09-14T20:49:21.7512437Z Labels:
+2025-09-14T20:49:21.7512910Z  org.mobyproject.buildkit.worker.moby.host-gateway-ip: 172.17.0.1
+2025-09-14T20:49:21.7547047Z ##[endgroup]
+2025-09-14T20:49:21.8355497Z ##[group]Inspect builder
+2025-09-14T20:49:21.8355916Z {
+2025-09-14T20:49:21.8356169Z   "nodes": [
+2025-09-14T20:49:21.8356436Z     {
+2025-09-14T20:49:21.8356696Z       "name": "default",
+2025-09-14T20:49:21.8357068Z       "endpoint": "default",
+2025-09-14T20:49:21.8357417Z       "status": "running",
+2025-09-14T20:49:21.8357746Z       "buildkit": "v0.20.2",
+2025-09-14T20:49:21.8358243Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2025-09-14T20:49:21.8358767Z       "features": {
+2025-09-14T20:49:21.8359055Z         "Automatically load images to the Docker Engine image store": true,
+2025-09-14T20:49:21.8359411Z         "Cache export": true,
+2025-09-14T20:49:21.8359633Z         "Direct push": true,
+2025-09-14T20:49:21.8359863Z         "Docker exporter": true,
+2025-09-14T20:49:21.8360104Z         "Multi-platform build": true,
+2025-09-14T20:49:21.8360362Z         "OCI exporter": true
+2025-09-14T20:49:21.8360561Z       },
+2025-09-14T20:49:21.8360717Z       "labels": {
+2025-09-14T20:49:21.8361027Z         "org.mobyproject.buildkit.worker.moby.host-gateway-ip": "172.17.0.1"
+2025-09-14T20:49:21.8361372Z       }
+2025-09-14T20:49:21.8361519Z     }
+2025-09-14T20:49:21.8361759Z   ],
+2025-09-14T20:49:21.8362304Z   "name": "default",
+2025-09-14T20:49:21.8362627Z   "driver": "docker"
+2025-09-14T20:49:21.8362908Z }
+2025-09-14T20:49:21.8363403Z ##[endgroup]
+2025-09-14T20:49:21.8523013Z ##[group]Run sudo curl -o /usr/local/bin/cog -L https://github.com/replicate/cog/releases/download/v0.16.7/cog_Linux_x86_64
+2025-09-14T20:49:21.8524085Z [36;1msudo curl -o /usr/local/bin/cog -L https://github.com/replicate/cog/releases/download/v0.16.7/cog_Linux_x86_64[0m
+2025-09-14T20:49:21.8524612Z [36;1msudo chmod +x /usr/local/bin/cog[0m
+2025-09-14T20:49:21.8524859Z [36;1mcog --version[0m
+2025-09-14T20:49:21.8555197Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-14T20:49:21.8555524Z ##[endgroup]
+2025-09-14T20:49:21.8721950Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2025-09-14T20:49:21.8722604Z                                  Dload  Upload   Total   Spent    Left  Speed
+2025-09-14T20:49:21.8722926Z 
+2025-09-14T20:49:22.0888424Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-09-14T20:49:22.0889022Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2025-09-14T20:49:22.2247827Z 
+2025-09-14T20:49:23.0700760Z   1 29.3M    1  412k    0     0  1169k      0  0:00:25 --:--:--  0:00:25 1169k
+2025-09-14T20:49:23.0701309Z 100 29.3M  100 29.3M    0     0  24.5M      0  0:00:01  0:00:01 --:--:-- 34.3M
+2025-09-14T20:49:23.0902891Z cog version 0.16.7 (built 2025-09-10T21:32:46Z)
+2025-09-14T20:49:23.0946461Z ##[group]Run echo "Logging in to Replicate..." >&2
+2025-09-14T20:49:23.0946789Z [36;1mecho "Logging in to Replicate..." >&2[0m
+2025-09-14T20:49:23.0947159Z [36;1mecho "$REPLICATE_CLI_AUTH_TOKEN" | cog login --token-stdin[0m
+2025-09-14T20:49:23.0977357Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-09-14T20:49:23.0977669Z env:
+2025-09-14T20:49:23.0977987Z   REPLICATE_CLI_AUTH_TOKEN: ***
+2025-09-14T20:49:23.0978218Z ##[endgroup]
+2025-09-14T20:49:23.1022575Z Logging in to Replicate...
+2025-09-14T20:49:23.1106737Z [31mⅹ [0mThat looks like a Replicate API token, not a CLI auth token. Please fetch a token from https://replicate.com/auth/token to log in!
+2025-09-14T20:49:23.1125814Z ##[error]Process completed with exit code 1.
+2025-09-14T20:49:23.1223961Z Post job cleanup.
+2025-09-14T20:49:23.1271506Z Post job cleanup.
+2025-09-14T20:49:23.2788109Z ##[group]Cleaning up certificates
+2025-09-14T20:49:23.2796740Z ##[endgroup]
+2025-09-14T20:49:23.2797343Z ##[group]Post cache
+2025-09-14T20:49:23.2798187Z State not set
+2025-09-14T20:49:23.2798749Z ##[endgroup]
+2025-09-14T20:49:23.2932846Z Post job cleanup.
+2025-09-14T20:49:23.3873062Z [command]/usr/bin/git version
+2025-09-14T20:49:23.3925853Z git version 2.51.0
+2025-09-14T20:49:23.3983366Z Temporarily overriding HOME='/home/runner/work/_temp/74720b13-eaf4-42d1-867b-cd8508fa1fb7' before making global git config changes
+2025-09-14T20:49:23.3984992Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-14T20:49:23.3989353Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/guillotine-inpaint/guillotine-inpaint
+2025-09-14T20:49:23.4033293Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-14T20:49:23.4067162Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-14T20:49:23.4290735Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-14T20:49:23.4311491Z http.https://github.com/.extraheader
+2025-09-14T20:49:23.4323859Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-14T20:49:23.4354504Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-14T20:49:23.4671087Z Cleaning up orphan processes
