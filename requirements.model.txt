@@ -1,6 +1,9 @@
 --extra-index-url https://pypi.tuna.tsinghua.edu.cn/simple
 --index-url https://pypi.org/simple
 -c https://raw.githubusercontent.com/panpetos/guillotine-inpaint/main/constraints.txt
+--extra-index-url https://pypi.tuna.tsinghua.edu.cn/simple
+--index-url https://pypi.org/simple
+-c https://raw.githubusercontent.com/panpetos/guillotine-inpaint/main/constraints.txt
 torch
 torchvision
 diffusers
