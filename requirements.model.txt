@@ -1,3 +1,6 @@
+--extra-index-url https://pypi.tuna.tsinghua.edu.cn/simple
+--index-url https://pypi.org/simple
+-c https://raw.githubusercontent.com/panpetos/guillotine-inpaint/main/constraints.txt
 torch
 torchvision
 diffusers
@@ -6,4 +9,5 @@ accelerate
 safetensors
 pillow
 requests
-pydantic==2.11.1
+pydantic==1.10.13
+typing-extensions>=4.2.0
